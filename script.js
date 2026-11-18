@@ -153,5 +153,5 @@ if (heroSlides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce
     heroSlides[nextIndex].classList.add('is-active');
     heroSlides[nextIndex].removeAttribute('aria-hidden');
     slideIndex = nextIndex;
-  }, 5000);
+  }, 8000);
 }
