@@ -42,7 +42,7 @@ for (const [index, [key, project]] of entries.entries()) {
     ? `<section class="case-copy" aria-labelledby="contribution-title"><p class="eyebrow">My contribution</p><h2 id="contribution-title">The work behind it</h2><p>${escapeHtml(project.contribution)}</p></section>`
     : '';
   const gallery = project.images.length
-    ? `<div class="case-gallery" aria-label="Project images">${project.images.map(([url, alt], imageIndex) => `<figure><img src="../${escapeHtml(url)}" alt="${escapeHtml(alt)}" loading="${imageIndex === 0 ? 'eager' : 'lazy'}" /><figcaption>${escapeHtml(alt)}</figcaption></figure>`).join('')}</div>`
+    ? `<div class="case-gallery" role="group" aria-label="Project images">${project.images.map(([url, alt], imageIndex) => `<figure><img src="../${escapeHtml(url)}" alt="${escapeHtml(alt)}" loading="${imageIndex === 0 ? 'eager' : 'lazy'}" /><figcaption>${escapeHtml(alt)}</figcaption></figure>`).join('')}</div>`
     : `<div class="case-no-image"><span>GO<span class="case-plus">+</span></span><small>SIMULATOR</small></div>`;
   const links = project.links.length
     ? `<div class="case-links">${project.links.map(([label, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`
