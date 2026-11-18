@@ -140,3 +140,18 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.setAttribute('aria-label', 'Open menu');
 }));
+
+const heroSlides = [...document.querySelectorAll('.hero-slide')];
+const heroVisual = document.querySelector('.hero-visual');
+if (heroSlides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let slideIndex = 0;
+  window.setInterval(() => {
+    if (document.hidden || heroVisual.matches(':hover, :focus-within')) return;
+    const nextIndex = (slideIndex + 1) % heroSlides.length;
+    heroSlides[slideIndex].classList.remove('is-active');
+    heroSlides[slideIndex].setAttribute('aria-hidden', 'true');
+    heroSlides[nextIndex].classList.add('is-active');
+    heroSlides[nextIndex].removeAttribute('aria-hidden');
+    slideIndex = nextIndex;
+  }, 5000);
+}
